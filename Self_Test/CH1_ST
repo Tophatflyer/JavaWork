@@ -1,0 +1,67 @@
+1. What is bytecode and why is it important to Java’s use for Internet programming?
+	bytecode is designed as compiled code for the JVM (Java Virtual Machine) for portability across CPUs. The JVM is inherently secure as well as it encapsulates any bytecode that it will be executing so it does not allow direct access to resources.
+
+2. What are the three main principles of object-oriented programming?
+	Encapsulation, Polymorphism, Inheritance.
+
+3. Where do Java programs begin execution?
+	Java programs begin execution at the main() method
+
+4. What is a variable?
+	variable is a defined object with a datatype which can be reassigned using the = (assignment) operator.
+
+5. Which of the following variable names is invalid?
+
+A. count (valid)
+
+B. $count (invalid)
+
+C. count27 (valid)
+
+D. 67count (invalid)
+
+6. How do you create a single-line comment? How do you create a multiline comment?
+	// single line comment
+	/* multiline
+	comment */
+
+7. Show the general form of the if statement. Show the general form of the for loop.
+	if(condition){
+		//body
+	}
+
+	for(iterator, condition, increment){
+		//body
+	}
+
+8. How do you create a block of code?
+	Create the signature of the method and then create a body
+
+	Example:
+	public int blockCode(String arg1, int arg2, double arg3){
+		//body
+	}
+	
+
+
+9. The moon’s gravity is about 17 percent that of earth’s. Write a program that computes your
+effective weight on the moon.
+
+public static void main(String args[]){
+	double myWeight = 230;
+	double moonWeight = 230 * 0.17;
+
+	System.out.println("My weight on Earth is " + myWeight + ". My weight on the Moon is " + moonWeight ".");
+}
+
+10. Adapt Try This 1-2 so that it prints a conversion table of inches to meters. Display 12 feet
+of conversions, inch by inch. Output a blank line every 12 inches. (One meter equals
+approximately 39.37 inches.)
+//Answer is in file Chapter1Q10.java
+
+11. If you make a typing mistake when entering your program, what sort of error will result?
+	Syntax Error
+
+12. Does it matter where on a line you put a statement?
+	No. This is due to the end of statement operator ; Java is not whitespace sensitive
+

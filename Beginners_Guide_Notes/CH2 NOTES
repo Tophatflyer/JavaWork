@@ -28,3 +28,66 @@ Boolean:
 	returns true or false values
 	outcome of a relational operator is true or false
 
+Literals:
+	fixed values represented in their human-readable form
+	Integer Literals:
+		numerical values
+		Ex. 100, 10, 50
+		by default integer literals are of type int.
+		to specify long type add an L after the value
+			Ex. 100L, 10L, 50L
+		underscore is used to represent , (comma) in integer values for readability (they are discarded when compiled).
+			Ex. 100000000 one hundred million can be represented as 100_000_000
+			useful for encoding part numbers, customer IDs, status codes.
+	Floating-point literals:
+		numerical values with decimal
+		Ex. 20.5, 10.000000001, 1.0;
+		by default floating-point literals are of type double.
+		to specify float type add an F after the value.
+			Ex. 100F, 10F, 50F
+	Character constants:
+		represented with '' (single quotes)
+		Ex. 'A', '%', '1'
+		integer literals can be assigned to character constants
+	Hexadecimal, Octal, Binary Literals:
+		Octal:
+			8-based numbering system 0 to 7
+			the number 8 is the same as 10 in decimal
+			Notation(0):
+				Ex. oct = 011 //9 in decimal
+		Hexadecimal:
+			16-based numbering system 0 to 9 and A through F
+			the number 10 is the same as 16 in decimal
+			Notation (0x):
+				Ex. hex = 0xFF; //this is 255 in hex
+		Binary:
+			2-based numbering system
+			the number 1010 is the same as 10 in decimal
+			Notation (0b):
+			Ex. bin = 0b1100; //this is 12 in decimal
+Character Escape Sequences:
+	\' (single quote)
+	\" (double quote)
+	\\ (backslash)
+	\r (carriage return)
+	\n (new line)
+	\f (form feed)
+	\t (tab)
+	\b (backspace)
+	\ddd (octal constant)
+	\uxxxx (hexadecimal constant)
+
+String literals:
+	Set of characters enclosed in double quotes
+		Ex. "this is a string"
+
+
+
+
+
+
+
+
+
+
+

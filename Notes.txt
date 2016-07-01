@@ -1,0 +1,5 @@
+
+git add <file name>
+git commit -m "comment"
+git add '*.java'
+git push https://github.com/Tophatflyer/JavaWork.git master

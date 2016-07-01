@@ -1,0 +1,25 @@
+CH1 NOTES
+
+JVM designed to interpret bytecode and execute it and allowed for portability of java to different platforms
+JVM Encapsulates the Bytecode for security reasons
+
+Three traits of java:
+
+Encapsulation:
+	Classes contain the attributes and methods of an object and are able to define the access of these objects wether they are public, protected, or private.
+Polymorphism:
+	Support of generic interfaces for classes that are used often with differing data types
+Inheritance:
+	One object acquired the properties of another object
+
+Access Modifiers:
+	Public:
+	Protected:
+	Private:
+
+Static:
+	Ex. public static void main(String args[])
+		Static allows for the main() method to be called before an object of the class is created.
+
+System.out:
+	System.out is an object that encapsulates console output

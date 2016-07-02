@@ -1,0 +1,76 @@
+1. Why does Java strictly specify the range and behavior of its primitive types?
+	This is because Java wants to ensure portability across platforms so all CPUs must comply to this when using the JVM.
+
+2. What is Java’s character type, and how does it differ from the character type used by some
+other programming languages?
+	Java's character type is different in the sense that it supports unicode which means that it does not simply limit itself to ASCII values. This design decision was made to make Java a more global language.
+
+3. A boolean value can have any value you like because any non-zero value is true. True or False?
+	False. Java boolean is either true or false.
+
+4. Given this output,
+
+One
+Two
+Three
+
+using a single string, show the println( ) statement that produced it.
+
+//Answer
+System.out.println("One\nTwo\nThree");
+
+5. What is wrong with this fragment?
+
+for(i = 0; i < 10; i++) {
+ int sum;
+ sum = sum + i;
+}
+
+System.out.println("Sum is: " + sum);
+
+//Answer
+The intent was to calculate the sum for the integers from 0 to 9. The issue with this for loop block is that the variable sum is never initialized and the variable i is never given a type so it cannot be instantiated properly. Also, having the instantiation int sum within the for loop block will be a problem as once the for loop iterates, the local scope of sum will be destroyed and then re-instantiated resulting in a fresh new sum which will not currectly compute the summation. Also, doing it this way results in an issue with printing sum as the inner scope is not accessible to the outer scope meaning sum is not defined for the println() built-in method.
+
+6. Explain the difference between the prefix and postfix forms of the increment operator.
+	The difference between the prefix and the postfix deals with when the evaluation of the expression occurs. Prefix will increment the variable before returning the value, whereas the postfix incrementation will result in the value being returned and then the expression evaluated.
+
+7. Show how a short-circuit AND can be used to prevent a divide-by-zero error.
+
+	int x = 0, y = 2;
+	if((x != 0) && ((y/x) == 0)){
+		//body
+	}
+
+	This prevents a divide-by-zero error because it will check to see if x is not equal to 0 which will return false and the short-circuit AND will not evaluate the right hand side of the expression.
+
+8. In an expression, what type are byte and short promoted to?
+	The byte and short types are promoted to int in an expression
+
+9. In general, when is a cast needed?
+	A cast is needed when the type promotion being made is undesired.
+
+10. Write a program that finds all of the prime numbers between 2 and 100.
+	//Chapter2Q10.java
+
+11. Does the use of redundant parentheses affect program performance?
+	No. The parenthese will be discarded.
+
+12. Does a block define a scope?
+	Yes. It will have it's own local scope.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -81,13 +81,111 @@ String literals:
 	Set of characters enclosed in double quotes
 		Ex. "this is a string"
 
+Variables:
+	type var-name;
+
+	Initializing a variable:
+		Giving meaning to a variable
+			type var = value; //assignment of value to variable
+			Ex. int count = 10; // give count an initial value of 10
+				char ch = 'X'; // initialize ch with the letter X
+				float f = 1.2F; // f is initialized with 1.2
+
+	Dynamic Initialization:
+		class DynInit {
+ 			public static void main(String args[]) {
+ 				double radius = 4, height = 5;
+ 				// dynamically initialize volume
+ 				double volume = 3.1416 * radius * radius * height;
+ 				System.out.println("Volume is " + volume);
+ 			}
+ 		}
+
+ 	Scope and Lifetime of Variables:
+ 		A block defines a scope. A scope determines what objects are visible to other parts of the program. It also determines the lifetime of the objects.
+
+ 		Method Scoping:
+ 			Parameters defined for the method are within the scope of the method.
+ 			Variables defined inside a scope are not accessible to code defined outside of the scope.
+ 			Scope can be nested. This means that a new block defined within a block is enclosed. Objects defined in the outer block are visible to the inner block. However, the objects defined in the inner block is not visible to the outer block.
+
+Operators:
+	An operator is a symbol that tells the compiler to make a mathematical or logical manipulation.
+
+	Arithmetic Operators:
+		+ (addition)
+		- (subtraction)
+		* (multiplication)
+		/ (division)
+		% (remainder)
+		++ (increment)
+		-- (decrement)
+
+		prefix vs. postfix (increment/decrement):
+		x = 10;
+		y = ++x; //y will be set to 11 as x is pre-incremented then the value is stored in y;
+
+		x = 10;
+		y = x++; //y will be set to 10 as x is post-incremented;
 
 
 
 
+	Relational Operators (returns boolean value):
+		== (equal to)
+		!= (not equal to)
+		> (greater than)
+		< (less than)
+		>= (greater than or equal to)
+		<= (less than or equal to)
 
+	Logical Operators (returns boolean value):
+		& (AND)
+		| (OR)
+		^ (XOR)
+		|| (OR short circuit) //when first value evaluates to true dont evaluate right hand side.
+		&& (AND short circuit) //when first value evaluates to false dont evaluate right hand side.
+		! (NOT)
 
+		Truth Table
 
+		p 		q 		p & q 		p | q 		p ^ q 		!p
+		False 	False 	False 		False 		False 		True
+		True 	False 	False 		True 		True 		False
+		False 	True 	False 		True 		True 		True
+		True 	True 	True 		True 		False 		False 
 
+	Assignment Operator:
+		the = (single equal operator) is used. 
+		var = expression; //type of var must match the type of the expression.
+		Ex. int numVar = 10;
 
+Expressions:
+	Operators, variables, and literals can all be used in expressions.
 
+	Type Conversion In Expressions:
+		Mixing types is allowed (such as short and long). This is because Java has type promotion rules
+		Order of promotion:
+			char, byte, short -> int -> long -> float -> double
+		Promotions only occur at the time of evaluation of an expression (if a char is promoted to int in the expression it is still a char outside of the expression)
+
+		Type conversion can lead to unexpected results
+		//Example of type conversion issue which requires casting to avoid incompatibility of type int and byte
+		// A promotion surprise!
+		class PromDemo {
+ 			public static void main(String args[]) {
+ 				byte b;
+ 				int i;
+ 				b = 10;
+ 				i = b * b; // OK, no cast needed
+ 				b = 10;
+ 				b = (byte) (b * b); // cast needed!!
+ 				System.out.println("i and b: " + i + " " + b);
+ 			}
+		}
+
+		//An Example of type conversion issue with chars
+		char ch1 = 'a', ch2 = 'b'; 
+		ch1 = (char) (ch1 + ch2); //adding chars leads to type conversion of int so type casting to char is necessary
+
+		

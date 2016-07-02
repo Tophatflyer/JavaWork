@@ -1,0 +1,32 @@
+CH3 NOTES
+
+Input Characters From The Keyboard:
+	System.in.read() returns an integer value and must be cast to a char if assigned to char variable.
+
+If Statement:
+	if(condition) statement;
+	else statement;
+
+	if(condition){
+		statement sequence
+	}else{
+		statement sequence
+	}
+
+Switch Statement:
+	switch(expression){
+		case constant1:
+			statement sequence
+			break;
+		case constant2:
+			statement sequence
+			break;
+		.
+		.
+		.
+		case constantN:
+			statement sequence
+			break;
+		default:
+			statement sequence
+	}

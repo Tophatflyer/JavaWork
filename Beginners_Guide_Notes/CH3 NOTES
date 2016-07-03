@@ -30,3 +30,67 @@ Switch Statement:
 		default:
 			statement sequence
 	}
+
+For Loop:
+	for(initialization; condition; iteration) statement;
+
+	for(initialization; condition; iteration){
+		statement sequence
+	}
+
+	Infinite For Loop:
+		for(;;){
+
+		}
+
+While Loop:
+	while(condition){
+		statement sequence;
+	}
+
+Do-While Loop:
+	do{
+		statement sequence;
+	}while(condition);
+
+While vs. do-while Loop:
+	Use do-while when at least one iteration is always expected. Otherwise use while loop.
+
+Break:
+	the break statement breaks out of the inner most loop.
+	break label:
+		in order to break out of a deeply nested set of loops
+
+Continue:
+	continue is the complement of break and forces the next iteration of a loop to take place
+	continue label:
+		in order to go to label just like break.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

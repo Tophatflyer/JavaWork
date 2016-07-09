@@ -1,0 +1,61 @@
+CH6 NOTES
+
+Controlling Access to Class Members:
+	Two major benefits of the class:
+		1. Links data with the code that manipulates it.
+		2. provides the means by which access to the members is controlled.
+
+	Public:
+		member can be freely accessed by code defined outside of the class.
+	Private:
+		member can be accessed only by other methods defined in the class.
+
+	Java Access Modifiers:
+		Three Access Modifiers:
+			Public (default access modifier).
+			Private.
+			Protected (applies when inheritance is involved).
+
+		Package:
+			A group of classes
+
+	How arguments are passed:
+		call-by-value:
+			copies the value of an argument into the formal parameter of the subroutine. Changes made to the parameter in the subroutine do not affect the argument.
+		call-by-reference:
+			passes the reference of the object into the parameter. Reference is used to access the actual argument. Changes made to the parameter will affect the argument.
+
+		Primitive Types:
+			primitive types such as int or double are passed by value. 
+		Objects:
+			Objects are implicitly passed by reference. This is because when you create an instance of an object, you are storing the reference address in the variable.
+		
+			NOTE: The object reference that is passed to the argument is passed by value. However, since the object reference, references the same object, it will still refer to the same object referred by the original object reference.
+
+	Returning Objects:
+		A method is able to return any type of data, including class types.
+
+	Method Overloading:
+		When two or more methods within a class share the same name, but their parameters are different. This is known as Method Overloading. Method overloading is one of the ways that Java implements overloading.
+
+		Java Methods employ type promotion when there is no method with the same data type argument. For instance, if byte is passed to an overloaded method where there are only void methodA(int a) and void methodA(double A) then it will be promoted to int.
+
+		Polymorphism:
+			Method Overloading supports Polymorphism because of the concept of "One interface, many methods" paradigm.
+
+	Overloading Constructors:
+		Constructor methods can be overloaded just like regular class methods by their signature parameters.
+
+		It is often useful to overload a constructor which uses one object o initialize another for efficiency.
+
+	
+
+
+
+
+
+
+
+
+
+

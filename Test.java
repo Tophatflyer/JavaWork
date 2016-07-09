@@ -1,22 +1,7 @@
 class Test{
 	public static void main(String args[]){
-		int num1[] = new int[10];
-		int num2[] = new int[10];
-
-		for(int i = 0; i < num1.length; i++){
-			num1[i] = i;
-			num2[i] = -i;
-		}
-
-		System.out.print("num2 before reference reassignment: ");
-		for(int i = 0; i < num1.length; ++i)
-			System.out.print(num2[i] + " ");
-		System.out.println();
-
-		num2 = num1;
-		System.out.print("num2 after reference reassignment: ");
-		for(int x = 0; x < num1.length; ++x)
-			System.out.print(num2[x] + " ");
-		System.out.println();
+		String temp = "I like Java";
+		System.out.println("The length of the string \"I like Java\" is: " + temp.length() + " and the character at index 0 is: " + temp.charAt(0));
+		int array[] = {1,2,3,4,5};
 	}
 }

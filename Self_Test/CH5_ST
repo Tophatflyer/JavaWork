@@ -8,38 +8,80 @@
 	int Num = {1,2,3,4,5};
 
 3. Write a program that uses an array to find the average of 10 double values. Use any 10 values you like.
-//CH5Q3.java
+//Chapter5Q3.java
 
 
 4. Change the sort in Try This 5-1 so that it sorts an array of strings. Demonstrate that it
 works.
+//Chapter5Q4.java
 
 5. What is the difference between the String methods indexOf( ) and lastIndexOf( )?
+	indexOf() provides the first instance of the searched substring. lastIndexOf provides the last matching substring.
 
 6. Since all strings are objects of type String, show how you can call the length( ) and charAt( )
 methods on this string literal: "I like Java".
 
+String temp = "I like Java";
+System.out.println("The length of the string \"I like Java\" is: " + temp.length() + " and the character at index 0 is: " temp.charAt(0));
+
 7. Expanding on the Encode cipher class, modify it so that it uses an eight-character string
 as the key.
+	//Chapter5Q7.java
+
 
 8. Can the bitwise operators be applied to the double type?
+	No, the bitwise operators can only be used on int, short, char, or byte data types.
 
 9. Show how this sequence can be rewritten using the ? operator.
-if(x < 0) y = 10;
-else y = 20;
+if(x < 0) 
+	y = 10;
+else 
+	y = 20;
+
+	//Answer
+	if(x < 0 ? y = 10 : y = 20);
 
 10. In the following fragment, is the & a bitwise or logical operator? Why?
 boolean a, b;
 // ...
 if(a & b) ...
 
+	//Answer
+	In this case it is a logical operator because it is seeing if both boolean instance variables are true then executes the statement inside the if block.
+
 11. Is it an error to overrun the end of an array? Is it an error to index an array with a negative value?
+	Yes, it is an index out of bounds error to overrun an array. It is also an error to index an array with a negative value. Arrays are zero based and run from 0 to N-1 where N is the size of array.
 
 12. What is the unsigned right-shift operator?
+	>>> which makes sure that when shifting right for negative values, it will not retain the signed bit and will force a 0 to show up from the left-hand side.
 
 13. Rewrite the MinMax class shown earlier in this chapter so that it uses a for-each style for loop.
+	//Chapter5Q13.java
+
 
 14. Can the for loops that perform sorting in the Bubble class shown in Try This 5-1 be converted
 into for-each style loops? If not, why not?
+	This is not possible as iterators simple traverse through the whole array from start to end. This does not work for the bubble sort as greater values have to be pushed to the end and lesser values pushed to the beginning of the array which does not work with how the for-each loop works.
 
 15. Can a String control a switch statement?
+	Yes, Strings are able to control switch statements.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

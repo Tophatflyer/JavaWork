@@ -1,0 +1,180 @@
+CH5 NOTES
+
+Arrays:
+	In Java, Arrays are implemented as objects which is important as it allows for unused arrays to be garbage collected.
+
+	One-Dimensional Arrays:
+		type array-name[] = new type[size];
+		Ex. int sample[] = new int[10];
+
+		it can also be declared like this:
+			int sample[];
+			sample = new int[10];
+
+			in the first line, sample is not linked to any object. It is in the second line that sample is linked with an array.
+
+		Index:
+			Arrays are indexed and start at the zero element. If an array is declared to be int sample = new int[10]; then the indexing is from range 0 to 9.
+
+	Multidimensional Arrays:
+		type array-name [][] = new type[size][size];
+		Ex. int table[][] = new int[10][20]
+
+	Alternative Array Declaration:
+		int[] num1, num2, num3; \\Declare 3 int arrays.
+
+	As array variables are references to array objects, it is possible to reassign array instance variables to refer to another array
+	Ex. int num1[] = new int[10];
+		int num2[] = new int[10];
+
+		num1 = {1,2,3,4,5};
+		num2 = {5,6,7,8,9};
+		num2 = num1 //num2 now references whatever array num1 has
+
+Queue:
+	Supports two operations: put and get
+		put:
+			Each put operation places a new element on the end of the queue.
+		get:
+			Each get operation retrieves the next element from the front of the queue.
+	Queue operations are consumptive. This means that once the element is retrieved, it cannot be retrieved again. Queues can also be full if there is no space in the queue. A queue can also be empty if there are no elements in the queue.
+
+For-Each Style for Loop:
+	Used for iteration from start to finish of an array.
+	Ex. for(type itr-var: collection){
+		Statement-block
+	}
+
+Strings:
+	In Java, Strings are not an array of characters but rather an object.
+
+	Constructing Strings:
+		String str = new String("Hello"); //String object str that contains the character string "Hello"
+
+		String str2 = new String(str); //str2 now has a copy of str which is "Hello"
+
+	Operating on Strings:
+		boolean equals(str):
+			returns true if the invoking string contains the same character sequence as str.
+
+		int length():
+			returns the length of the invoking string.
+
+		char charAt(int index):
+			returns the character at the specified index.
+
+		int compareTo(str):
+			returns less than zero if the invoking string is less than str. Greater than zero if the invoking string is greater than str. Zero if the invoking string is equal to str.
+		
+		int indexOf(str):
+			searches the invoking string for the substring str. Returns the index of the first match or -1 if it fails.
+		
+		int lastIndexOf(str):
+			searches the invoking string for the substring str. returns the index of the last match or -1 if it fails.
+
+	Concatenate Strings:
+		You can concatenate Strings.
+		Ex. String str1 = "One";
+			String str2 = "Two";
+			String str3 = "Three";
+			String str4 = str1 + str2 + str3;
+
+			System.out.println(str4); //the output will be OneTwoThree
+
+	equals() vs. ==:
+		the equals() method is defined to do direct comparisons between two String objects to see if they are equal. the == is used to see wether the two instance variables reference the same String object.
+
+	Arrays of Strings:
+		Strings can also be assembled into arrays:
+			Ex. String str[] = {"This", "is", "a", "test."};
+
+	Strings are Immutable:
+		The contents of a String object are immutable. This means after the constructor executes for the string, it cannot be changed. This prevents altered Strings when refences to that String are made.
+
+		If an altered version of a String is desired, a new String containing the altered String should be created. This is okay as the garbage collector will deal with the old String that is no longer referenced. If this is not desired, StringBuffer can be used.
+
+		String reference variables are after to change the object to which they refer. The difference is that the content of the specific String object are not changed once created.
+
+	substring():
+		returns a new String that is a specified portion of the invoking String.
+
+		String substring(int startIndex, int endIndex);
+
+	Using A String to Control a switch Statement:
+
+		// Use a string to control a switch statement.
+		class StringSwitch {
+			public static void main(String args[]) {
+				String command = "cancel";
+				switch(command) {
+					case "connect":
+						System.out.println("Connecting");
+						break;
+					case "cancel":
+						System.out.println("Canceling");
+						break;
+					case "disconnect":
+						System.out.println("Disconnecting");
+						break;
+					default:
+						System.out.println("Command Error!");
+						break;
+				}
+			}
+		}
+
+	Using Command-Line Arguments:
+		public static void main(String args[]):
+			args[] stores an array of Strings
+		Ex. //Phone.java
+			//java Phone Mary
+
+The Bitwise Operators:
+	The Bitwise operators can only be used on long, int, short, char, and byte data types.
+
+	Operators:
+		&	Bitwise AND
+		|	Bitwise OR
+		^	Bitwise XOR
+		>>	Shift Right
+		>>>	Unsigned Shift Right
+		<<	Shift Left
+		~	One's Complement
+
+	Bitwise AND:
+		Think of it as a way to turn bits OFF.
+
+		1101 0011
+	&	1010 1010
+		---------
+		1000 0010
+
+The ? Operator (ternary operator):
+	Often used to replace the if-else statement.
+
+	Form:
+		Exp1 ? Exp2 : Exp3;
+
+	Given Exp1 evaluates to true, Exp2 is evaluated and becomes the value of the entire ? expression. If Exp1 is false, Exp3 is evaluated and becomes the value of the entire ? expression.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

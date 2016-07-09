@@ -1,0 +1,146 @@
+CH4 NOTES
+
+Class Fundamentals:
+
+A class is a template that defines the form of an object. It specifies the data and the code that will operate on the data.
+
+Objects are instances of a class.
+
+Methods are Variables are members of a class.
+
+General Form of a Class:
+	
+	class classname {
+
+		// declare instance variables
+		type var1;
+		type var2;
+		// ...
+		type varN;
+
+		// declare methods
+		type method1(parameters) {
+		// body of method
+		}
+
+		type method2(parameters) {
+		// body of method
+		}
+
+		// ...
+
+		type methodN(parameters) {
+		// body of method
+		}
+	}
+
+	A well-designed class should define one and only one logical entity. Putting unrelated information into the same class will destructure code.
+
+Defining a Class:
+
+	class Vehicle{
+		int passengers; //number of passengers
+		int fuelcap; //fuel capacity in gallons
+		int mpg; //miles per gallon
+	}
+
+	Defining a class does not bring it into memory as it is an abstraction. Once an object of the class type is instantiated is it created in memory.
+		Ex. Vehicle minivan = new Vehicle(); //this creates an object minivan of type Vehicle.
+
+	Dot Operator (object.member):
+		To access member variables in an object, the dot operator is utilized.
+			Ex. minivan.fuelcap = 16; //this will set the fuelcap to 16 gallons.
+
+How Objects Are Created:
+	//Analysis
+	Vehicle minivan = new Vehicle();
+
+	This code declares a variable called minivan of class type Vehicle. This variable does not define the object but instead refers to the object. Once the declaration is made, a physical copy of the object is made into memory and the minivan variable is assigned a refernce to that object, which is done by the new operator.
+
+	new:
+		The new operator dynamically allocates memory (during run time) for the given object and returns a reference to that object. This reference is the address to the location in memory that the object is stored. This reference is then stored in the variable. 
+
+Reference Variables and Assignment:
+	Object reference variables act differently than primitive type variables.
+	Ex. Vehicle car1 = new Vehicle();
+		Vehicle car2 = car1; //both car2 and car1 refer to the same object
+
+		car1.mpg = 26;
+
+		System.out.println(car1.mpg); //print 26
+		System.out.println(car2.mpg); //print 26
+
+	both objects refer to the same instance of the class Vehicle object as they have the same address.
+
+	Object reference variables can be reassigned to other objects of the same class type object. Simply the reference changes. The object old object is still there (as long as there is still a reference variable associated with it).
+	Ex. Vehicle car1 = new Vehicle();
+		Vehicle car2 = car1;
+		Vehicle car3 = new Vehicle();
+		car2 = car3; // now car2 and car3 refer to 
+
+Methods:
+
+	return-type name(parameter-list){
+		//body of method
+	}
+
+	non-void methods must return a value
+
+Parameters:
+	value passed to a method is called an argument. The variables that receive the arguments are called methods.
+
+Constructor:
+	initializes an object when it is created. Same name as the class and syntactically similar to a method. Constructors have no explicit return type. Give initial values to the instance variables defined by the class. 
+
+Parameterized Constructor:
+	Most often a parameter is given to the constructor to initialize the instance variables of a given class.
+
+Garbage Collection:
+	There is finite memory available. This means that the new operator for dynamically allocating memory could possibly fail. This is why Garbage Collection exists.
+
+	When no references to an object exists, the object is considered obsolete and is terminated; freeing memory. 
+
+	Garbage collection only occurs when two conditions are met:
+		1. When there are objects to recycle
+		2. When there is a need to recycle objects
+
+Finalize Method:
+	The finalize() method is used to ensure that an object is terminated cleanly. It is called right before the garbage collection.
+
+	Form of finalize():
+		protected void finalize(){
+			//finalization code
+		}
+
+	An example of when finalize() is used would be to ensure that an opened file owned by an object is properly closed.
+
+This Keyword:
+	this:
+		When a method is called, it is passed an implicit argument that is a reference to the invoking object.
+
+		this is used when the instance variable of a given object is hidden
+		Ex:
+			class ThisDemo{
+				int i;
+				ThisDemo(int i){
+					this.i = i;
+				}
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

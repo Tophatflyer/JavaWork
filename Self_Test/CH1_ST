@@ -8,7 +8,7 @@
 	Java programs begin execution at the main() method
 
 4. What is a variable?
-	variable is a defined object with a datatype which can be reassigned using the = (assignment) operator.
+	variable is a defined object with a data type which can be reassigned using the = (assignment) operator.
 
 5. Which of the following variable names is invalid?
 
@@ -30,7 +30,7 @@ D. 67count (invalid)
 		//body
 	}
 
-	for(iterator, condition, increment){
+	for(iterator, condition, increment/decrement){
 		//body
 	}
 

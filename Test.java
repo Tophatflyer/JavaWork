@@ -1,19 +1,22 @@
 class Test{
 	public static void main(String args[]){
- 		for(int i=0; i<=5; i++) {
- 		switch(i) {
- 			case 0:
- 				System.out.println("i is less than one");
- 			case 1:
- 				System.out.println("i is less than two");
- 			case 2:
- 				System.out.println("i is less than three");
- 			case 3:
- 				System.out.println("i is less than four");
- 			case 4:
- 				System.out.println("i is less than five");
- 		}
- 		System.out.println();
- 		}
+		int num1[] = new int[10];
+		int num2[] = new int[10];
+
+		for(int i = 0; i < num1.length; i++){
+			num1[i] = i;
+			num2[i] = -i;
+		}
+
+		System.out.print("num2 before reference reassignment: ");
+		for(int i = 0; i < num1.length; ++i)
+			System.out.print(num2[i] + " ");
+		System.out.println();
+
+		num2 = num1;
+		System.out.print("num2 after reference reassignment: ");
+		for(int x = 0; x < num1.length; ++x)
+			System.out.print(num2[x] + " ");
+		System.out.println();
 	}
 }

@@ -1,0 +1,94 @@
+1. Given this fragment,
+	class X {
+		private int count;
+	
+		is the following fragment correct?
+	class Y {
+		public static void main(String args[]) {
+			X ob = new X();
+			ob.count = 10;
+
+	No, ob.count cannot be directly accessed due to the access modifier for count in class X being private.
+
+2. An access modifier must __________ a member’s declaration.
+
+	An access modifier must come before a member's declaration
+
+3. The complement of a queue is a stack. It uses first-in, last-out accessing and is often likened
+to a stack of plates. The first plate put on the table is the last plate used. Create a stack
+class called Stack that can hold characters. Call the methods that access the stack push( )
+and pop( ). Allow the user to specify the size of the stack when it is created. Keep all other
+members of the Stack class private. (Hint: You can use the Queue class as a model; just
+change the way the data is accessed.)
+
+//Chapter6Q3.java
+
+4. Given this class,
+class Test {
+	int a;
+	Test(int i){ 
+		a = i; 
+	}
+}
+
+write a method called swap( ) that exchanges the contents of the objects referred to by two
+Test object references.
+
+void swap(Test one, Test two){
+	int temp = one.a;
+	one.a = one.b;
+	one.b = temp;
+}
+
+
+5. Is the following fragment correct?
+class X {
+ int meth(int a, int b) { ... }
+ String meth(int a, int b) { ... }
+
+ No, this following fragment is incorrect as you cannot distinguish methods on return type alone. In order to apply proper method overloading, the argument parameters must differ.
+
+6. Write a recursive method that displays the contents of a string backwards.
+	
+	class Reverse{
+		String word;
+		Reverse(String str){
+			word = str;
+		}
+
+		void reverse_string(int index){
+			if(index != word.length()-1)
+				reverse_string(index+1);
+			System.out.println(word.charAt(index));
+		}
+	}
+
+7. If all objects of a class need to share the same variable, how must you declare that variable?
+	It must be declared static.
+
+8. Why might you need to use a static block?
+	Initialization of static variables in a class before object is created and for static methods with arguments.
+
+9. What is an inner class?
+	A non-static nested class
+
+10. To make a member accessible by only other members of its class, what access modifier
+must be used?
+	private access modifier must be used.
+
+11. The name of a method plus its parameter list constitutes the method’s _______________.
+	signature
+
+12. An int argument is passed to a method by using call-by-_______________.
+	value
+
+13. Create a varargs method called sum( ) that sums the int values passed to it. Have it return
+the result. Demonstrate its use.
+
+14. Can a varargs method be overloaded?
+
+15. Show an example of an overloaded varargs method that is ambiguous.
+
+
+
+

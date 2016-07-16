@@ -1,0 +1,115 @@
+CH7 NOTES
+
+Inheritance:
+	Superclass:
+		The class that is inherited is called the superclass.
+
+	Subclass:
+		The class that inherits is called the subclass.
+
+	Inheritance Basics:
+		Extends:
+			Java uses the keyword extends to be able to inherit the variables and methods of a superclass.
+
+		General Form:
+			class subclass-name extends superclass-name{
+			//body of class
+			}
+
+		Member Access and Inheritance:
+			Inheriting a class does not overrule the private access restriction.
+
+			If an instance variable is to be used only by methods within the class itself, it should be made private. If the instance variable is needed outside of the given class, it should be made private and an accessor method should be made to be able to either set the value or get the value.
+
+		Constructors and Inheritance:
+			the superclass constructs the superclass portion of the object and the subclass constructs it's portion of the object.
+
+			When superclass uses default constructor:
+				Simply create a new object of the subclass with it's parameters.
+
+		Using super to Call Superclass Constructor:
+			Form:
+				super(parameter-list)
+
+			The super() method must always be called first in the subclass constructor.
+
+		Using super to Access Superclass Members:
+			Form:
+				super.member
+
+			Similar to the this keyword except that super always refers to the superclass members or methods. Useful when superclass members or methods are hidden by a subclass.
+
+		Multilevel Hierarchy:
+			super() refers to the constructor in the closest superclass.
+
+			When are constructors executed in a Multilevel Hierarchy?
+				The constructors are executed in a top-down approach from the highest superclass all the way down to the subclass.
+
+	Method Overriding:
+		If a subclass has the same signature (method name and parameter) as well as the same return type of a superclass method, it is overriding the method of the superclass.
+
+		In order to access a method that is overridden, the super.method() call must be made.
+
+		If the signatures are not the same, the method in the superclass is not overridden but overloaded.
+
+	Overridden Methods Support Polymorphism:
+		Method overriding allows for dynamic method dispatch. This is when a call to an overridden method is resolved at run time rather than compile time. This is important as this is how Java implements run-time polymorphism.
+
+	Abstract Classes:
+		When a generalized form of a superclass is needed for subclasses and will be implemented by the subclasses
+
+		Abstract Method:
+			When a method does not contain a body and must be overridden by a subclass.
+
+			Form:
+				abstract type name(parameter-list);
+
+		The abstract modifier can be used only on instance methods. It cannot be applied to static methods or to constructors
+
+		A class that contains one or more abstract methods must also be declared abstract.
+
+	Using final:
+		keyword final is used to prevent overriding of methods.
+
+		final prevents inheritance:
+			declaring a class as final does not allow for the class to be made a superclass of another.
+
+		Using final with data members:
+			If a member variable is declared as final, it cannot be changed after it has been initialized.
+
+		Declaring a method parameter static:
+			If a method parameter is declared static, it cannot be changed within the method. Declaring a local variable static prevents it from being assigned a value more than once.
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

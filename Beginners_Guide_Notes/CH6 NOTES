@@ -51,8 +51,54 @@ Controlling Access to Class Members:
 	Recursion:
 		A method that calls itself in a circular fashion. 
 
+		When a recursive call is made, a new copy of the method is not created. The new argument is stored on the stack and the method will be run from the start with the new argument.
+
+		When a recursive call returns, it will execute on the underlying method from where it started.
+
+		recursive methods require a conditional statement to force the method to return. This will prevent infinite recursion.
+
+	Static:
+		the keyword static is used when a class member will be used independently of any object of that class.
+
+		Ex. main() method is declared static because it must be called by the JVM when the program begins.
+
+		Outside of a class, in order to use a static member, the class name and the dot operator is used to access it. No object needs to be created.
+
+		Variables declared as static are essentially global variables.
+
+		When an object is declared, no copy of the static variable is made. Also, all instances of the class share the same static variable.
+
+		Ex. If static count = 10; is declared in the class ShowStatic.
+
+			class ShowStatic{
+				static int count = 10;
+				int countInd = 5; //this variable will not be shared.
+			}
+
+			class ShowStaticDemo{
+				ShowStatic demo = new ShowStatic();
+				showStatic demo2 = new ShowStatic();
+
+				System.out.println("demo count is: " + demo.count);   //demo.count = 10;
+				System.out.println("demo2 count is: " + demo2.count); //demo2.count = 10;
+
+				demo.count = 20;
+
+				System.out.println("demo count is: " + demo.count);	  //demo.count = 20;
+				System.out.println("demo2 count is: " + demo2.count); //demo2.count = 20;
+			}
 
 
+		Static Method:
+			Static methods can be called directly with the class name and the dot operator without creating an object.
+
+			Static methods have rules:
+				1. They can only directly call other static methods.
+				2. They can only directly access static data.
+				3. They do not have a this reference.
+
+		Static Block:
+			Java allows for static blocks for some type of initialization process. This is important as some static variables may need to be initialized before static methods are called. 
 
 
 

@@ -1,0 +1,90 @@
+CH8 NOTES
+
+Packages and Interfaces:
+	
+	Packages:
+		Packages participate in Java access protocol where Classes defined within a package can be made private to the given package. This means that the classes can be encapsulated within the given package.
+
+		namespace:
+			each class is unique as it's name defines a given namespace. As programs grow, the default namespace gets crowded which is why packages were created to avoid this issue.
+
+		Form:
+			package pkg;
+			Ex. package mypack;
+
+			package pack1.pack2.pack3...packN;
+			Ex. package alpha.beta.gamma;
+
+		Packages and Member Access:
+			Default (no access modifier):
+				Visible within the package but not outside the package
+			
+			Public:
+				The class is accessible everywhere.
+			
+			Private:
+				not affected by packages and will retain its original definition. Only accessible within the class itself.
+
+			Protected:
+				Accessible within its package and all subclasses, including subclasses from other packages.
+
+		Package Access:
+			If a class is in a different package and must be used, the class, its constructor, and its methods that are needed must be made public.
+
+		Importing Packages:
+			Form:
+				import pkg.classname;
+
+	Intefaces:
+		full abstraction of methods in a file.
+
+		Variables In Interfaces:
+			Can be declared in Interfaces. However, they are implicitly public, static, and final.
+
+		Interfaces Can Be Extended:
+			An Interface can Extend another Interface.
+			Ex. public interface A{
+				//methods with undefined behavior
+			}
+			public interface B extends A{
+				//methods with undefined behavior
+			}
+
+			class Example implements B{
+				//must implement both A and B methods
+			}
+
+		Default:
+			the keyword default is used to define a body of a method in an interface. This was designed for use for increasing the number of methods in an interface without breaking existing code. It does not force other code that has implemented this interface to implement the method that is being added. It will simply not be used.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

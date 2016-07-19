@@ -1,7 +1,7 @@
 class FinalizeDemo{
 	int x;
 	FinalizeDemo(int i){
-		int x = i;
+		x = i;
 	}
 
 	protected void finalize(){

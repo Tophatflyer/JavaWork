@@ -4,7 +4,8 @@ class Finalize{
 
 		FinalizeDemo ob = new FinalizeDemo(0);
 
-		for(count = 1; count < 1000000; count++)
+		for(count = 1; count < 1000000; count++){
 			ob.generator(count);
+		}
 	}
 }

@@ -1,0 +1,66 @@
+1. Does a superclass have access to the members of a subclass? Does a subclass have access to
+the members of a superclass?
+	
+	A superclass has no knowledge of the subclass so it does not have access to the members of the subclass.
+	A subclass does have access to the members of the superclass.
+
+
+2. Create a subclass of TwoDShape called Circle. Include an area( ) method that computes
+the area of the circle and a constructor that uses super to initialize the TwoDShape portion.
+
+//Circle.java TwoDShape.java Output.java
+
+
+3. How do you prevent a subclass from having access to a member of a superclass?
+	
+	keyword private is used. Only accessor methods are allowed if this is the case.
+
+4. Describe the purpose and use of the two versions of super described in this chapter.
+	
+	Purpose of super is to allow for the construction or access of methods or member variables of a given superclass. super() method allows for the superclass portion of an object to be constructed using the parameters of the given superclass. super.member is important for calling the hidden member variable of the given superclass. super.method() is used when calling the hidden method of a superclass.
+
+5. Given the following hierarchy:
+class Alpha { ...
+class Beta extends Alpha { ...
+class Gamma extends Beta { ...
+In what order do the constructors for these classes complete their execution when a Gamma
+object is instantiated?
+
+	Top down approach for constructors. This means when the Gamma object is instantiated, the class Alpha constructor is called, then the beta constructor, and then the gamma constructor. This makes sense as the parent classes have no knowledge of their subclasses and there may be dependencies on the superclass for the subclass.
+
+6. A superclass reference can refer to a subclass object. Explain why this is important as it
+relates to method overriding.
+
+	In terms of method overriding it is important that superclass references can refer to a subclass object as the type of object determines which method is being called.
+
+7. What is an abstract class?
+	A class that contains one or more methods that do not contain a body and must be implemented in a subclass.
+
+8. How do you prevent a method from being overridden? How do you prevent a class from
+being inherited?
+	By using the keyword final, a method cannot be oferridden and a class cannot be inherited.
+
+9. Explain how inheritance, method overriding, and abstract classes are used to support
+polymorphism.
+
+	inheritance is used to support polymorphism as it allows for a generalization of an object and then the inheriting subclass can then implement its own member variables and methods. Method overriding allows for run-time polymorphism. Abstract classes support polymorphism by allowing subclasses to define the usage of defined methods in a superclass.
+
+10. What class is a superclass of every other class?
+	The Object class is a superclass of every other class.
+
+11. A class that contains at least one abstract method must, itself, be declared abstract.
+True or False?
+	True. It must be declared abstract as the class is not fully implemented.
+
+12. What keyword is used to create a named constant?
+	The keyword final is used.
+
+
+
+
+
+
+
+
+
+

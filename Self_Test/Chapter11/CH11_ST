@@ -35,4 +35,4 @@ half second, and each tock take one half second. Thus, each tick-tock will take 
 
 12. On your own, try adding synchronization to the Queue class developed in previous chapters
 so that it is safe for multithreaded use.
-	//FINISH LATER
+	//MyQueue.java Queue.java ThreadQueue.java

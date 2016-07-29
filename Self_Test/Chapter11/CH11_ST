@@ -1,0 +1,38 @@
+1. How does Java’s multithreading capability enable you to write more efficient programs?
+	By allowing concurrency which is the ability to run multiple parts of a program at the same time sharing CPU resource.
+
+2. Multithreading is supported by the _________ class and the ________ interface.
+	Thread class and the Runnable interface.
+
+3. When creating a runnable object, why might you want to extend Thread rather than
+implement Runnable?
+	When you want to override some of the methods in Thread in a given class you would extend thread as opposed to implement the Runnable interface.
+
+4. Show how to use join() to wait for a thread object called MyThrd to end.
+		MyThrd.join();
+
+5. Show how to set a thread called MyThrd to three levels above normal priority.
+	MyThrd.setPriority(Thread.NORM_PRIORITY+3);
+
+6. What is the effect of adding the synchronized keyword to a method?
+	The synchronized keyword added to a method means the monitor of the object is locked when the object is accessed by a thread. This means all other synchronized methods in the same object is also unable to be accessed until the given thread is done and will then unlock the object.
+
+7. The wait( ) and notify( ) methods are used to perform _______________________.
+	communication between threads for resources.
+
+8. Change the TickTock class so that it actually keeps time. That is, have each tick take one
+half second, and each tock take one half second. Thus, each tick-tock will take one second.
+(Don’t worry about the time it takes to switch tasks, etc.)
+
+9. Why can’t you use suspend( ), resume( ), and stop( ) for new programs?
+	The suspend(), resume(), and stop() methods have been deprecated since Java 2.
+
+10. What method defined by Thread obtains the name of a thread?
+	getName() method in the Thread class will return the name of the given thread.
+
+11. What does isAlive( ) return?
+	isAlive() method returns true if the thread is still running. Otherwise it will return false.
+
+12. On your own, try adding synchronization to the Queue class developed in previous chapters
+so that it is safe for multithreaded use.
+	//FINISH LATER

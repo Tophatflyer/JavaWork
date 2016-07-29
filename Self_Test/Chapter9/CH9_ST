@@ -1,0 +1,71 @@
+1. What class is at the top of the exception hierarchy?
+	The Throwable class is at the top of the exception hierarchy.
+
+2. Briefly explain how to use try and catch.
+	try a block of code, if any error occurs check the catches and if a catch argument matches the given error then run the catch block.
+
+3. What is wrong with this fragment?
+// ...
+vals[18] = 10;
+catch (ArrayIndexOutOfBoundsException exc) {
+ // handle error
+}
+
+	The problem with this gragment of code is that there needs to be a try block around the vals[18] = 10; so that it can be caught by the catch block.
+
+4. What happens if an exception is not caught?
+
+5. What is wrong with this fragment?
+class A extends Exception { ...
+class B extends A { ...
+// ...
+try {
+ // ...
+}
+catch (A exc) { ... }
+catch (B exc) { ... }
+
+Since A is the superclass of B, the catch(B exc){} block will be unreachable and will cause a compile-time error as catch(A exc){} will catch all Exceptions.
+
+6. Can an inner catch rethrow an exception to an outer catch?
+	yes, it can throw to an outer catch.
+
+7. The finally block is the last bit of code executed before your program ends. True or False?
+Explain your answer.
+	False, the finally block occurs as the try catch statement is exiting and will always execute no matter if an exception is caught or not.
+
+8. What type of exceptions must be explicitly declared in a throws clause of a method?
+	all exceptions except the RunTimeException and the Error exceptions.
+
+9. What is wrong with this fragment?
+class MyClass { // ... }
+// ...
+throw new MyClass();
+
+as MyClass does not extend Throwables, there cannot be a throw new MyClass(). This is because only subclasses of Throwable are able to throw.
+
+10. In question 3 of the Chapter 6 Self Test, you created a Stack class. Add custom exceptions
+to your class that report stack full and stack empty conditions.
+//Stack.java StackFullException.java StackEmptyException.java
+
+
+11. What are the three ways that an exception can be generated?
+	a JVM exception, a program exception, and a throws exception.
+
+12. What are the two direct subclasses of Throwable?
+	Error and Exception
+
+13. What is the multi-catch feature?
+	The multi-catch feature allows for a catch to have multiple exception arguments and was designed for the fact that some exceptions might want to throw the same catch block.
+
+14. Should your code typically catch exceptions of type Error?
+	No, type Error is an issue with the JVM.
+
+
+
+
+
+
+
+
+

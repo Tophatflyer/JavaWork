@@ -1,0 +1,102 @@
+CH9 NOTES
+
+Exception Handling:
+	Designed in order to streamline error handling through the use of exception handlers.
+
+	The Exception Hierarchy:
+		Throwable:
+			All exception classes are derived from this class.
+			Error:
+				subclass which relates to errors that occur in the JVM, not the program.
+			Exception:
+				subclass which relates to errors that occur in the program.
+
+	Exception Handling Fundamentals:
+		try-catch:
+			program statements you want to monitor for exceptions will be in a try block. If an exception occurs in the try block, it is thrown. If this is the case then a catch is used.
+
+		throw:
+			Used to manually throw an exception.
+
+		throws:
+			Some cases require the throws exception.
+
+		finally:
+			Code that must be executed after a try block goes in a finally block.
+
+	Using try and catch:
+		Form:
+			try{
+				//body
+			}
+			catch(ExceptionType1 exceptionObject){
+				//handler of ExceptionType1
+			}
+			catch(ExceptionType2 exceptionObject){
+				//handler of ExceptionType2
+			}
+			...
+
+	The Consequences of an Uncaught Exception:
+		If the program does not catch an exception, it is caught by the JVM. However, this error message is not useful for the users of the given program.
+
+	Exceptions Enable You To Handle Errors Gracefully:
+		Through the try-catch blocks, each catch is able to handle a given exception and output user friendly errors.
+
+	Using Multiple Catch Statements:
+		Able to handle more than one exception for one try block through the definition of multiple catch statements.
+
+	Catching Subclass Exceptions:
+		Throwable:
+			Since the superclass of all exceptions is Throwable, catching Throwable will catch all exceptions. To allow for catches in the subclass as well as the superclass, catch blocks for the subclass must be defined before the superclass.
+
+	Nested try Blocks:
+		Nested try blocks are used primarily for severity of errors. For example, an inner try would have an error that could be handled immediately as it is considered a minor error. Whereas the outer one will result in a fatal error as the severity is very high.
+
+	Throwing an Exception:
+		It is possible to manually throw an exception by using the throw statement.
+
+		Form:
+			throw exceptionObject;
+			Ex. throw new ArithmeticException();
+
+	A Closer Look At Throwable:
+		printStackTrace():
+			allows for the whole path of the error to be seen.
+		toString():
+			returns a string object containing a complete description of the exception.
+	Finally:
+		Executed no matter what happens in the try catch. It will even execute after a return call is made within the try catch.
+
+	Using throws:
+		Form:
+			return-type methodName(parameter-list) throws exception-list{
+				//body
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,123 @@
+CH10 NOTES
+
+Using I/O:
+	Java I/O System is large due to the fact that it supports both character streams as well as byte stream libraries.
+
+	Java's I/O Is Built upon Streams:
+			I/O Stream:
+				An abstraction that either produces or consumes information (so basically data manipulation through input/output)
+			java.io:
+				the package used for input and output streams
+
+	Byte Streams and Character Streams:
+		Byte Stream:
+			Used for handling input and output of bytes.
+			Useful for:
+				Writing binary data.
+				Handling Files
+		Character Stream:
+			Handling the input and output of Characters
+
+		Two separate hierarchies makes the I/O system large. However, most of the functionality of the byte streams is paralleled to that of the character stream (so basically very similar).
+
+		Note: All I/O is still byte-oriented. It's just that character stream makes it easier to handle characters.
+
+	Byte Stream Classes:
+		Defined by using two class hierarchies. The InputStream and the OutputStream are abstract classes at the top of these hierarchies.
+			InputStream:
+				takes byte input
+			OutputStream:
+				sends out bytes
+
+	Character Stream Classes:
+		Defined by using two class hierarchies. The Reader and the Writer are abstract classes at the top of these hierarchies.
+			Reader:
+				used for character input.
+			Writer:
+				used for character output.
+
+	The Predefined Streams:
+		System:
+			part of the java.lang package which contains three predefined stream variables.
+			System.out:
+				refers to the default output stream (console).
+			System.in:
+				refers to standard input which is by default the keyboard.
+			System.err:
+				refers to the standard error stream, which is by default the console.
+
+			System.in is an instance of InputStream, which mean automatic access to InputStream methods. However, InputStream only has one input method read() which reads bytes.
+
+	Writing Console Output:
+		System.out is a byte based console output. System.out references PrintStream. This means that print() and println() are able to be used. Also the write() method is supported.
+
+		PrintStream supports two other methods:
+			printf() and format() which give detailed control of precise format of data that is output.
+
+	Reading and Writing Files Using Byte Stream:
+		In order to read and write from a file using byte stream FileInputStream and FileOutputStream are used.
+
+	Inputting From A File:
+		A file is opened for input once the FileInputStream object is created.
+
+		File Object Constructor Form:
+			FileInputStream(String fileName) throws FileNotFoundException
+
+		File Object read:
+			int read() throws IOException
+
+		File Object close:
+			void close() throws IOException
+
+		When using a try-catch block to read and file, it is good practice to use a finally block with a try-catch block that closes the file. This assures that the file closes no matter what happened in the try-catch block that read the file.
+
+	Writing To A File:
+		To write to a file a FileOutputStream object must be created.
+
+		Constructor Form:
+			FileOutputStream(String fileName) throws FileNotFoundException
+			FileOutputStream(String fileName, boolean append) throws FileNotFoundException
+
+			In the first constructor, when the file is opened, all contents of the file are destroyed. In the second constructor, if append is true then what is written to the file is appended to the end of the file, else the file is overwritten.
+
+		Write to file Form:
+			void write(int byteval) throws IOException
+
+		Must close output file using:
+			void close() throws IOException
+
+	Automatically Closing A File:
+		try-with-resources:
+			this is a way to deal with automatic resource management. Forgetting to close a file will lead to memory leaks.
+
+		try-with-resources form:
+			try(resource-specification){
+			//use the resource.
+			}
+
+		The try-with-resources statement is only available with resources that implement the AutoCloseable interface.
+
+	Reading and Writing Binary Data:
+		reading and writing Java primitive types will use DataInputStream and DataOutputStream.
+
+		DataOutputStream Form:
+			DataOutputStream(OutputStream outputStream)
+
+		DataInputStream Form:
+			DataInputStream(InputStream inputStream)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

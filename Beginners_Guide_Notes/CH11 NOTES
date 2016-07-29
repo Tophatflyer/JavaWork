@@ -1,0 +1,267 @@
+CH11 NOTES
+
+Multithreaded Programming:
+	concurrently running two or more parts of a program.
+
+	Multithreading Fundamentals:
+		Two distinct types of multitasking: process-based and thread-based.
+			processed-based:
+				allows the computer to run two or more programs concurrently.
+				Ex. running Java compiler while running a browser or text editor.
+			thread-based:
+				allows a program to run two or more tasks at once.
+				Ex. text editor is formatting text at the same time printing.
+
+			Java has no control over processed-based multitasking. However, Java is capable of handling thread-based multitasking.
+
+			Multithreading features work for both single-core CPUs and multi-core CPUs. In a single-core CPU, the CPU is shared evenly in time slices. In multi-processor/multi-core systems, it is possible to run two or more threads concurrently. This allows for program efficiency and increase in speed of operations.
+
+			A thread can be in several states: running, ready to run, suspended, resumed, blocked, terminated.
+
+			Syncronization:
+				allowing the execution of threads to be coordinated in well-defined ways.
+
+	Creating A Thread:
+		In order to create a thread, the runnable interface must be implemented or the thread class must be extended.
+
+		when runnable interface is implemented the run() method must be added to the class with a body.
+
+		run() form:
+			public void run(){
+			//body
+			}
+
+		ClassName newRunnable = new ClassName(); //create a runnable object if runnable is implemented.
+
+		Thread newThread = new Thread(newRunnable); //creates a thread object on a runnable one.
+
+		newThread.start(); //starts running new thread along side main thread.
+
+		It is good practice to have the main thread finish last.
+
+		Naming Thread Form:
+			Thread(Runnable threadObject, String name);
+
+		It is possible to start a thread as soon as it is constructed:
+
+			class MyThread implements Runnable{
+				Thread thrd;
+
+				MyThread(String name){
+					thrd = new Thread(this, name);
+					thrd.start();
+				}
+
+				public void run(){
+					System.out.println(thrd.getName() + " starting.");
+					try{
+						for(int i = 0; i<10; i++){
+							Thread.sleep(400);
+							System.out.println("In " + thrd.getName() + ", count is " + count);
+						}catch(InterruptedException e){
+							System.out.println(thrd.getName() + " interrupted");
+						}
+					}
+					System.out.println(thrd.getName() + " terminating.");
+				}
+			}
+
+			class UseThreadImproved{
+				public static void main(String args[]){
+					System.out.println("Main thread starting.");
+
+					MyThread mt = new MyThread("Child #1");
+
+					for(int i = 0; i < 50; i++){
+						System.out.print(".");
+						try{
+							Thread.sleep(100);
+						}catch(InterruptedException e){
+							System.out.println("Main thread interrupted: " + e);
+						}
+					}
+					System.out.println("Main thread ending.");
+				}
+			}
+
+	Creating Multiple Threads:
+		The threads will share the CPU. The execution of each thread is dependent as Java is free to schedule the execution of threads in its own way.
+
+	Determining When A Thread Ends:
+		isAlive() Form:
+			final boolean isAlive();
+				this method returns true if the thread is still running. Returns false otherwise.
+
+		How to use isAlive():
+			class MoreThreads{
+				public static void main(String args[]){
+					System.out.println("Main thread starting.");
+
+					MyThread mt = new MyThread("Child #1");
+					MyThread mt2 = new MyThread("Child #2");
+					MyThread mt3 = new MyThread("Child #3");
+
+					do{
+						System.out.println(".");
+						try{
+							Thread.sleep(100);
+						}catch(InterruptedException e){
+							System.out.println("main thread interrupted.");
+						}
+					}while(mt1.isAlive() || mt2.isAlive() || mt3.isAlive()); //very useful for waiting for all child threads to end before main.
+
+					System.out.println("Main thread ending.");
+				}
+			}
+
+		join() Form:
+			final void join() throws InterruptedException
+				this method waits till the thread that it is called on terminates.
+
+		How to use join():
+			class MyThread implements Runnable{
+				Thread thrd;
+
+				MyThread(String name){
+					thrd = new Thread(this, name);
+					thrd.start();
+				}
+
+				public void run(){
+					System.out.println(thrd.getName() + " starting.");
+					try{
+						for(int count = 0; count < 10; count++){
+							Thread.sleep(400);
+							System.out.println("In " + thrd.getName() + ", count is " + count);
+						}
+					}catch(InterruptedException e){
+						System.out.println(thrd.getName() + " Interrupted.");
+					}
+					System.out.println(thrd.getName() + " terminating.");
+				}
+			}
+
+			class JoinThreads{
+				public static void main(String args[]){
+					System.out.println("Starting main thread.");
+
+					MyThread mt = new MyThread("Child #1");
+					MyThread mt2 = new MyThread("Child #2");
+					MyThread mt3 = new MyThread("Child #3");
+
+					try{
+						mt1.thrd.join();
+						System.out.println("Child #1 Joined.");
+						mt2.thrd.join();
+						System.out.println("Child #2 Joined.");
+						mt3.thrd.join();
+						System.out.println("Child #3 Joined.");
+					}catch(InterruptedException e){
+						System.out.println("Main thread interrupted.");
+					}
+					System.out.println("Main thread terminating.");	
+				}
+			}
+
+	Thread Priorities:
+		low-priority threads are given little CPU time, high-priority threads are given a lot of CPU time. However, this is only one factor as if a high-priority thread does not receive all it's needed resources but the low-priority does, then the low-priority thread will execute first.
+
+		When a child thread is started, it has the same priority level as that of its parent thread. In order to change this the setPriority() method in the Thread class is utilized.
+
+		setPriority() form:
+			final void setPriority(int level)
+				the level argument in setPriority must be passed a value between MIN_PRIORITY and MAX_PRIORITY which is between the values of 1 and 10.
+
+	Synchronization:
+		coordination of the activities of two or more threads. Most common example is when two or more threads need access to a shared resource that can be accessed only one thread at a time.
+
+		Ex: Writing to a file. If a thread is writing to a file, the other thread must not be allowed to also write to the same file at the same time.
+
+		Ex2: A thread must wait for an event to occur in another thread. In this case the first thread must be placed in some suspended state until the event occurs in the second thread. Then, the waiting thread must resume execution.
+
+		Monitor:
+			controls access to an object. A monitor works by implementing the concept of a lock.
+			lock:
+				When an object is locked by a thread, no other thread can gain access to the object. When the thread exits, the object is unlocked and is available for use by another thread.
+
+			All objects in Java have a monitor. This is a feature built into the Java language. This means that all objects can be synchronized.
+
+	Using Synchronized Methods:
+		by using the synchronized keyword, the calling thread is able to enter the object's monitor and lock the object. While the given object is locked, no thread can enter the method. Once the thread returns from the method, the monitor unlocks the object and allows for other threads to access it.
+
+	The Synchronized Statement:
+		Often times it is necessary to synchronize methods that are not preceded with the synchronized keyword. For example, in a black box situation where the code was not created by you and you do not have direct access to the given code. In order to solve this issue you are able to make calls to the method within a synchronized block.
+
+		synchronized block form:
+			synchronized(objectReference){
+				//statement to be synchronized.
+			}
+				Once the synchronized block is entered by a thread, no other thread is able to call the synchronized method on the object referred to by objectReference until the block has been exited.
+
+	Thread Communication Using notify(), wait(), and notifyAll():
+		the wait(), notify(), and notifyAll() methods are part of the Object class and should only be called in a synchronized context.
+
+		When a thread is temporarily blocked, it calls wait(). When this occurs, it is in a sleep state and the monitor for the given object is released, allowing another thread to access the given object. At a later point in time, the thread is awakened when another thread enters the monitor and calls the notify(), or notifyAll() methods.
+
+		wait() forms:
+			final void wait() throws InterruptedException
+
+			final void wait(long milliseconds) throws InterruptedException
+
+			final void wait(long milliseconds, int nanoseconds) throws InterruptedException
+
+		notify() form:
+			final void notify()
+				a call to notify() resumes one waiting thread.
+
+		notifyAll() form:
+			final void notifyAll()
+				a call to notifyAll() notifies all threads, where the highest-priority thread will gain access to the given object.
+
+	Suspending, Resuming, and Stopping Threads:
+		In modern Java, two flags are added to the object where the first one suspends or resumes the thread and the second one stops the thread.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

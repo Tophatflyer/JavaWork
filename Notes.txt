@@ -4,5 +4,5 @@ git commit -m "comment"
 git add '*.java'
 git push https://github.com/Tophatflyer/JavaWork.git master
 
-//removes all .class files in the working directory recursively
+//removes all .class files in the working directory recursively	
 find . -name '*.class' -delete
